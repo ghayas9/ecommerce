@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import Prodects from './Pages/Prodects'
+import NavBar from './Components/NavBar'
+import {BrowserRouter as Router , Routes , Route } from 'react-router-dom';
+import LogIn from './Pages/LogIn';
+import SignUp from './Pages/SignUp';
+import Admin from './Pages/Admin';
+import AddProduct from './Pages/AddProduct';
+import Payment from './Pages/Payment';
 
-function App() {
+
+
+export default function App() {
+
+
+
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+    
+    <Router>
+    <NavBar/>
+        <Routes>
+          <Route path="/" element={<Prodects/>}/>
+          <Route path="/products" element={<Prodects/>}/>
+          <Route path="/signin" element={<LogIn/>}/>
+          <Route path="/signup" element={<SignUp/>}/>
+          <Route path="/admin" element={<Admin/>}/>
+          <Route path="/product/add" element={<AddProduct/>}/>
+          <Route path="/payment" element={<Payment/>}/>
+          {/* <Route path="*" element={<Error/>}/> */}
+        </Routes>
+      </Router>
+    </>
+  )
 }
 
-export default App;
+
+
+
